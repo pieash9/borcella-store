@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.0.1",
+    "@clerk/nextjs": "^4.30.0",
     "@stripe/stripe-js": "^3.3.0",
     "lucide-react": "^0.372.0",
     "mongoose": "^8.3.2",
