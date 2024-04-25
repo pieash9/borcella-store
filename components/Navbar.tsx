@@ -17,9 +17,9 @@ const Navbar = () => {
         <Image src="/logo.png" alt="logo" width={100} height={100} />
       </Link>
 
-      <div className="">
+      {/* <div className="">
         <Link href="/">Home</Link>
-      </div>
+      </div> */}
       <div className="relative flex gap-3 items-center">
         <Link
           href="/cart"
