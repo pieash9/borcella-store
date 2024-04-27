@@ -5,12 +5,14 @@ import { UserButton, useUser } from "@clerk/nextjs";
 import { CircleUserRound, Menu, Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Navbar = () => {
   const { user } = useUser();
   const [dropdownMenu, setDropdownMenu] = useState(false);
   const [query, setQuery] = useState("");
+  const router = useRouter();
   const cart = useCart();
   return (
     <div className="sticky top-0 z-10 py-2 px-10 flex justify-between items-center gap-2 bg-white max-sm:px-2">
@@ -41,7 +43,12 @@ const Navbar = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <Search className="cursor-pointer size-4 hover:text-red-1" />
+        <button
+          disabled={query === "" || query.trim().length === 0}
+          onClick={() => router.push(`/search/${query}`)}
+        >
+          <Search className="cursor-pointer size-4 hover:text-red-1" />
+        </button>
       </div>
 
       <div className="relative flex gap-3 items-center">
