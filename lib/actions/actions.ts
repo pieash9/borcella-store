@@ -28,3 +28,10 @@ export const getSearchedProducts = async (query: string) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/search/${query}`);
   return await res.json();
 };
+
+export const getOrders = async (customerId: string) => {
+  const orders = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/orders/customer/${customerId}`
+  );
+  return await orders.json();
+};
