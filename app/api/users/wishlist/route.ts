@@ -1,4 +1,4 @@
-import User from "../../../../lib/models/User";
+import User from "@/lib/models/User";
 import { connectToDB } from "@/lib/mongoDB";
 import { auth } from "@clerk/nextjs";
 import { NextRequest, NextResponse } from "next/server";
@@ -40,3 +40,5 @@ export const POST = async (req: NextRequest) => {
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 };
+
+export const dynamic = "force-dynamic";

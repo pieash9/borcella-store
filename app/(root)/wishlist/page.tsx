@@ -3,7 +3,6 @@
 import Loader from "@/components/Loader";
 import ProductCard from "@/components/ProductCard";
 import { getProductsDetails } from "@/lib/actions/actions";
-
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 
