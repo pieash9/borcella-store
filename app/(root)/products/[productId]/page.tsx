@@ -35,3 +35,4 @@ const ProductDetailsPage = async ({
 };
 
 export default ProductDetailsPage;
+export const dynamic = "force-dynamic";

@@ -19,3 +19,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+export const dynamic = "force-dynamic";

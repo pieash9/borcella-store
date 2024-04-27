@@ -26,3 +26,4 @@ const SearchPage = async ({ params }: { params: { query: string } }) => {
 };
 
 export default SearchPage;
+export const dynamic = "force-dynamic";

@@ -125,3 +125,4 @@ const CartPage = () => {
 };
 
 export default CartPage;
+export const dynamic = "force-dynamic";
