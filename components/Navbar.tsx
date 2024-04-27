@@ -5,10 +5,11 @@ import { UserButton, useUser } from "@clerk/nextjs";
 import { CircleUserRound, Menu, Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const { user } = useUser();
   const [dropdownMenu, setDropdownMenu] = useState(false);
   const [query, setQuery] = useState("");
@@ -21,14 +22,24 @@ const Navbar = () => {
       </Link>
 
       <div className="flex items-center gap-4 text-base-bold max-lg:hidden">
-        <Link className="hover:text-red-1" href="/">
+        <Link
+          className={`hover:text-red-1 ${pathname === "/" && "text-red-1"}`}
+          href="/"
+        >
           Home
         </Link>
-        <Link className="hover:text-red-1" href={user ? "/orders" : "/sign-in"}>
+        <Link
+          className={`hover:text-red-1 ${
+            pathname === "/orders" && "text-red-1"
+          }`}
+          href={user ? "/orders" : "/sign-in"}
+        >
           Orders
         </Link>
         <Link
-          className="hover:text-red-1"
+          className={`hover:text-red-1 ${
+            pathname === "/wishlist" && "text-red-1"
+          }`}
           href={user ? "/wishlist" : "/sign-in"}
         >
           Wishlist
@@ -69,17 +80,24 @@ const Navbar = () => {
 
         {user && dropdownMenu && (
           <div className="absolute top-12 right-5 flex flex-col gap-4 p-3 rounded-lg border bg-white text-base-bold lg:hidden w-40">
-            <Link className="hover:text-red-1" href="/">
+            <Link
+              className={`hover:text-red-1 ${pathname === "/" && "text-red-1"}`}
+              href="/"
+            >
               Home
             </Link>
             <Link
-              className="hover:text-red-1"
+              className={`hover:text-red-1 ${
+                pathname === "/orders" && "text-red-1"
+              }`}
               href={user ? "/orders" : "/sign-in"}
             >
               Orders
             </Link>
             <Link
-              className="hover:text-red-1"
+              className={`hover:text-red-1 ${
+                pathname === "/wishlist" && "text-red-1"
+              }`}
               href={user ? "/wishlist" : "/sign-in"}
             >
               Wishlist
