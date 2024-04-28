@@ -9,19 +9,20 @@ import { useEffect, useState } from "react";
 const Wishlist = () => {
   const { user } = useUser();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [signedInUser, setSignedInUser] = useState<UserType | null>(null);
   const [wishlist, setWishlist] = useState<ProductType[]>([]);
 
   const getUser = async () => {
     try {
+      setLoading(true);
       const res = await fetch("/api/users");
       const data = await res.json();
       setSignedInUser(data);
       setLoading(false);
     } catch (err) {
-      console.log("[users_GET", err);
       setLoading(false);
+      console.log("[users_GET", err);
     }
   };
 
@@ -32,18 +33,23 @@ const Wishlist = () => {
   }, [user]);
 
   const getWishlistProducts = async () => {
-    setLoading(true);
-    if (!signedInUser) return;
+    try {
+      setLoading(true);
+      if (!signedInUser) return;
 
-    const wishlistProducts = await Promise.all(
-      signedInUser.wishlist.map(async (productId) => {
-        const res = await getProductsDetails(productId);
-        return res;
-      })
-    );
-
-    setWishlist(wishlistProducts);
-    setLoading(false);
+      const wishlistProducts = await Promise.all(
+        signedInUser?.wishlist &&
+          signedInUser?.wishlist?.map(async (productId) => {
+            const res = await getProductsDetails(productId);
+            return res;
+          })
+      );
+      setLoading(false);
+      setWishlist(wishlistProducts);
+    } catch (error) {
+      setLoading(false);
+      console.log("wishlist", error);
+    }
   };
 
   useEffect(() => {
@@ -61,17 +67,19 @@ const Wishlist = () => {
   ) : (
     <div className="px-10 py-5">
       <p className="text-heading3-bold my-10">Your Wishlist</p>
-      {wishlist.length === 0 && <p>No items in your wishlist</p>}
-
-      <div className="flex flex-wrap justify-center gap-16">
-        {wishlist.map((product) => (
-          <ProductCard
-            key={product._id}
-            product={product}
-            updateSignedInUser={updateSignedInUser}
-          />
-        ))}
-      </div>
+      {wishlist.length === 0 ? (
+        <p>No items in your wishlist</p>
+      ) : (
+        <div className="flex flex-wrap justify-center gap-16">
+          {wishlist?.map((product) => (
+            <ProductCard
+              key={product._id}
+              product={product}
+              updateSignedInUser={updateSignedInUser}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

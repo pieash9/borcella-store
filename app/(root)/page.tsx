@@ -1,5 +1,8 @@
 import Collections from "@/components/Collections";
+import LatestProduct from "@/components/LatestProduct";
+import Newsletter from "@/components/Newsletter";
 import ProductList from "@/components/ProductList";
+import TrendingProducts from "@/components/TrendingProducts";
 import Image from "next/image";
 
 const HomePage = () => {
@@ -14,6 +17,9 @@ const HomePage = () => {
       />
       <Collections />
       <ProductList />
+      <LatestProduct />
+      <TrendingProducts />
+      <Newsletter />
     </>
   );
 };

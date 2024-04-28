@@ -13,7 +13,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
     productInfo.sizes[0]
   );
   const [quantity, setQuantity] = useState<number>(1);
-  const cart = useCart();
+  const cart: any = useCart();
   return (
     <div className="max-w-[400px] flex flex-col gap-4 ">
       <div className="flex justify-between items-center">

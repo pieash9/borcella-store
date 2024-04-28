@@ -14,7 +14,7 @@ const ProductDetailsPage = async ({
   const relatedProducts: ProductType[] = await getRelatedProducts(
     productDetails._id
   );
-  console.log(relatedProducts);
+
   return (
     <>
       <div className="flex justify-center items-center gap-16 py-10 px-5 max-md:flex-col max-md:items-center">

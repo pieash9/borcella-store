@@ -11,7 +11,7 @@ const ProductCard = ({ product, updateSignedInUser }: ProductCardProps) => {
   return (
     <Link
       href={`/products/${product._id}`}
-      className="w-[220px] flex flex-col gap-2"
+      className="w-[220px] flex flex-col gap-2 shadow-md p-2"
     >
       {product.media && (
         <Image
@@ -19,11 +19,11 @@ const ProductCard = ({ product, updateSignedInUser }: ProductCardProps) => {
           alt={product.title}
           width={250}
           height={300}
-          className="h-[250px] rounded-lg object-contain"
+          className="h-[250px] rounded-lg object-cover object-top"
         />
       )}
       <div className="">
-        <p className="text-base-bold">{product.title}</p>
+        <p className="text-base-bold line-clamp-1 mb-2">{product.title}</p>
         <p className="text-small-medium text-grey-2">{product.category}</p>
       </div>
       <div className="flex justify-between items-center">

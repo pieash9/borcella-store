@@ -114,8 +114,9 @@ const CartPage = () => {
         </div>
 
         <button
-          className="border border-grey-2 rounded-lg text-body-bold bg-white py-3 w-full hover:bg-black hover:text-white"
+          className="border border-grey-2 rounded-lg text-body-bold bg-white py-3 w-full hover:bg-black hover:text-white disabled:bg-gray-200 disabled:hover:text-black"
           onClick={handleCheckout}
+          disabled={cart.cartItems.length === 0}
         >
           Proceed To Checkout
         </button>

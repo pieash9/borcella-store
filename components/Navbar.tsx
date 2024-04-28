@@ -16,7 +16,7 @@ const Navbar = () => {
   const router = useRouter();
   const cart = useCart();
   return (
-    <div className="sticky top-0 z-10 py-2 px-10 flex justify-between items-center gap-2 bg-white max-sm:px-2">
+    <nav className="sticky top-0 z-10 py-2 px-10 flex justify-between items-center gap-2 bg-white/90 max-sm:px-2 shadow-md">
       <Link href="/">
         <Image src="/logo.png" alt="logo" width={100} height={100} />
       </Link>
@@ -46,17 +46,22 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className=" flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
+      <div className="flex gap-3 border border-grey-2 px-3 py-1 items-center rounded-lg">
         <input
-          className="outline-none max-sm:max-w-[120px]"
+          className="outline-none max-sm:max-w-[120px] bg-transparent"
           type="text"
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+            e.key === "Enter" && router.push(`/search/${query}`);
+          }}
         />
         <button
           disabled={query === "" || query.trim().length === 0}
-          onClick={() => router.push(`/search/${query}`)}
+          onClick={() => {
+            router.push(`/search/${query}`);
+          }}
         >
           <Search className="cursor-pointer size-4 hover:text-red-1" />
         </button>
@@ -120,7 +125,7 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 

@@ -6,7 +6,6 @@ import { useEffect } from "react";
 
 const SuccessfulPayment = () => {
   const cart = useCart();
-
   useEffect(() => {
     cart.clearCart();
   }, []);

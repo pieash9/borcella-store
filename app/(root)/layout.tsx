@@ -4,6 +4,8 @@ import "../globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import ToastProvider from "@/lib/providers/ToastProvider";
+import Footer from "@/components/Footer";
+import FreeOffer from "@/components/FreeOffer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +24,10 @@ export default function RootLayout({
       <body suppressHydrationWarning={true} className={inter.className}>
         <ClerkProvider>
           <ToastProvider />
+          <FreeOffer />
           <Navbar />
-          {children}
+          <div className="min-h-[calc(100vh-300px)]">{children}</div>
+          <Footer />
         </ClerkProvider>
       </body>
     </html>

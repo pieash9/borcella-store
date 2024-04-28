@@ -12,7 +12,7 @@ const Gallery = ({ productMedia }: { productMedia: string[] }) => {
         width={800}
         height={800}
         alt="product"
-        className="size-96 rounded-lg shadow-lg object-cover"
+        className="size-96 rounded-lg shadow-lg object-cover object-top"
       />
       <div className="flex gap-2 overflow-auto tailwind-scrollbar-hide">
         {productMedia.map((image, i) => (
@@ -22,7 +22,7 @@ const Gallery = ({ productMedia }: { productMedia: string[] }) => {
             alt="product"
             width={200}
             height={200}
-            className={`size-20 cursor-pointer object-cover rounded-lg ${
+            className={`size-20 cursor-pointer object-cover object-top rounded-lg ${
               mainImage === image ? "border-2 border-black" : ""
             }`}
             onClick={() => setMainImage(image)}
