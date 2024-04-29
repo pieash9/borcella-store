@@ -11,7 +11,7 @@ const ProductCard = ({ product, updateSignedInUser }: ProductCardProps) => {
   return (
     <Link
       href={`/products/${product._id}`}
-      className="w-[220px] flex flex-col gap-2 shadow-md p-2"
+      className="w-[220px] max-sm:w-full flex flex-col gap-2 shadow-md max-sm:p-4 p-2"
     >
       {product.media && (
         <Image
@@ -19,7 +19,7 @@ const ProductCard = ({ product, updateSignedInUser }: ProductCardProps) => {
           alt={product.title}
           width={250}
           height={300}
-          className="h-[250px] rounded-lg object-cover object-top"
+          className="h-[250px] w-full rounded-lg object-cover object-top"
         />
       )}
       <div className="">

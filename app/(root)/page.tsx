@@ -1,4 +1,5 @@
 import Collections from "@/components/Collections";
+import CustomerFeedback from "@/components/CustomerFeedback";
 import LatestProduct from "@/components/LatestProduct";
 import Newsletter from "@/components/Newsletter";
 import ProductList from "@/components/ProductList";
@@ -19,6 +20,7 @@ const HomePage = () => {
       <ProductList />
       <LatestProduct />
       <TrendingProducts />
+      <CustomerFeedback />
       <Newsletter />
     </>
   );

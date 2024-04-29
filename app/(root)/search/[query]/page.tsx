@@ -8,7 +8,7 @@ const SearchPage = async ({ params }: { params: { query: string } }) => {
   const decodedQuery = decodeURIComponent(params.query);
 
   return (
-    <div className="px-10 py-5">
+    <div className="px-10 py-5 md:px-4">
       <p className="text-heading4-bold my-10">
         Search result for : {decodedQuery}
       </p>
