@@ -76,14 +76,12 @@ const Navbar = () => {
           <p className="text-base-bold">Cart ({cart.cartItems.length})</p>
         </Link>
 
-        {user && (
-          <Menu
-            className="cursor-pointer lg:hidden"
-            onClick={() => setDropdownMenu(!dropdownMenu)}
-          />
-        )}
+        <Menu
+          className="cursor-pointer lg:hidden"
+          onClick={() => setDropdownMenu(!dropdownMenu)}
+        />
 
-        {user && dropdownMenu && (
+        {dropdownMenu && (
           <div className="absolute top-12 right-5 flex flex-col gap-4 p-3 rounded-lg border bg-white text-base-bold lg:hidden w-40">
             <Link
               className={`hover:text-red-1 ${pathname === "/" && "text-red-1"}`}

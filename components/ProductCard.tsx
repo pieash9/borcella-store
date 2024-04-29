@@ -19,6 +19,8 @@ const ProductCard = ({ product, updateSignedInUser }: ProductCardProps) => {
           alt={product.title}
           width={250}
           height={300}
+          placeholder="blur"
+          blurDataURL="https://images.unsplash.com/photo-1616410731303-6affae095a0a?q=80&w=80"
           className="h-[250px] w-full rounded-lg object-cover object-top"
         />
       )}

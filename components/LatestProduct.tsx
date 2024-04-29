@@ -5,7 +5,7 @@ const LatestProduct = async () => {
   const products: ProductType[] = await getProducts();
 
   const sortedProducts = products.sort(
-    (a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
+    (a, b) => new Date(a.createdAt).valueOf() - new Date(b.createdAt).valueOf()
   );
   return (
     <div className="flex flex-col items-center gap-10 py-10 px-5">

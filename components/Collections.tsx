@@ -19,6 +19,8 @@ const Collections = async () => {
                 alt={collection.title}
                 width={300}
                 height={200}
+                placeholder="blur"
+                blurDataURL="https://images.unsplash.com/photo-1616410731303-6affae095a0a?q=80&w=80"
                 className="rounded-lg cursor-pointer h-[10rem] object-cover"
               />
             </Link>
