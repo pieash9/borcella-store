@@ -9,7 +9,7 @@ Borcella Store is an e-commerce platform built with Next.js, TypeScript, Zustand
 ## Technologies Used
 
 - **Frontend:**
-
+  - Clerk for authentication
   - Next.js
   - TypeScript
   - Zustand
