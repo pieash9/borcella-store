@@ -53,5 +53,5 @@ Borcella Store is an online marketplace where users can browse and purchase a va
    git clone https://github.com/your-username/borcella-store.git
     cd borcella-store
     npm install
-    npm run dev
+    npm run dev .
    ```
